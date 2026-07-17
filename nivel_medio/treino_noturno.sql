@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS relato_cena_crime;
 DROP TABLE IF EXISTS funcionario;
 DROP TABLE IF EXISTS depoimento;
-DROP TABLE IF EXISTS membro_cyberarena;
-DROP TABLE IF EXISTS checkin_cyberarena;
+DROP TABLE IF EXISTS membro_cyber_arena;
+DROP TABLE IF EXISTS checkin_cyber_arena;
 DROP TABLE IF EXISTS log_acesso;
 DROP TABLE IF EXISTS solucao;
 
@@ -28,14 +28,14 @@ CREATE TABLE depoimento (
     FOREIGN KEY (id_funcionario) REFERENCES funcionario(id_funcionario)
 );
 
-CREATE TABLE membro_cyberarena (
+CREATE TABLE membro_cyber_arena (
     id_membro TEXT PRIMARY KEY,
     id_funcionario INTEGER,
     tipo_plano TEXT,
     FOREIGN KEY (id_funcionario) REFERENCES funcionario(id_funcionario)
 );
 
-CREATE TABLE checkin_cyberarena (
+CREATE TABLE checkin_cyber_arena (
     id_membro TEXT,
     data_checkin TEXT,
     FOREIGN KEY (id_membro) REFERENCES membro_cyberarena(id_membro)
@@ -72,14 +72,14 @@ INSERT INTO relato_cena_crime VALUES
 INSERT INTO depoimento VALUES
 (3, 'Eu vi o assassino saindo as pressas. Reconheci o moletom do clube de e-sports Cyber Arena. Sei que ele e membro do plano dourado, e que treinou no clube no dia 09/01/2026.');
 
-INSERT INTO membro_cyberarena VALUES
+INSERT INTO membro_cyber_arena VALUES
 ('48Z7A', 5, 'dourado'),
 ('10X3B', 6, 'padrao'),
 ('48Z2C', 7, 'padrao'),
 ('99Y48Z', 8, 'dourado'),
 ('77A11B', 9, 'dourado');
 
-INSERT INTO checkin_cyberarena VALUES
+INSERT INTO checkin_cyber_arena VALUES
 ('48Z7A', '2026-01-09'),
 ('48Z7A', '2026-01-03'),
 ('99Y48Z', '2026-01-02'),
